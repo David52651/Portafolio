@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora Científica</title>
+  <link rel="stylesheet" href="../css/CalculadoraCss.css" />
+</head>
+<body>
+  <div id="app-container" style="display: flex; gap: 40px; padding: 40px; justify-content: center; align-items: flex-start;">
+    
+    <div class="calculadora">
+      <div class="pantalla" id="pantalla">0</div>
+      <div class="botones">
+        <button onclick="limpiar()">C</button>
+        <button onclick="borrar()">←</button>
+        <button onclick="agregar('(')">(</button>
+        <button onclick="agregar(')')">)</button>
+
+        <button onclick="agregar('sin(')">sin</button>
+        <button onclick="agregar('cos(')">cos</button>
+        <button onclick="agregar('tan(')">tan</button>
+        <button onclick="agregar('π')">π</button>
+
+        <button onclick="agregar('7')">7</button>
+        <button onclick="agregar('8')">8</button>
+        <button onclick="agregar('9')">9</button>
+        <button class="operador" onclick="agregar('/')">/</button>
+
+        <button onclick="agregar('4')">4</button>
+        <button onclick="agregar('5')">5</button>
+        <button onclick="agregar('6')">6</button>
+        <button class="operador" onclick="agregar('*')">*</button>
+
+        <button onclick="agregar('1')">1</button>
+        <button onclick="agregar('2')">2</button>
+        <button onclick="agregar('3')">3</button>
+        <button class="operador" onclick="agregar('-')">-</button>
+
+        <button onclick="agregar('0')">0</button>
+        <button onclick="agregar('.')">.</button>
+        <button onclick="agregar('%')">%</button>
+        <button class="operador" onclick="agregar('+')">+</button>
+
+        <button onclick="agregar('√(')">√</button>
+        <button onclick="agregar('^')">x^y</button>
+        <button onclick="agregar('log(')">log</button>
+        <button onclick="agregar('ln(')">ln</button>
+
+        <button onclick="agregar('e')">e</button>
+        <button onclick="agregar('!')">n!</button>
+        <button class="operador igual" style="grid-column: span 2" onclick="calcular()">=</button>
+      </div>
+    </div>
+
+    <div id="historial">
+      <h2>Historial</h2>
+      <!-- Aquí se añadirán los elementos del historial -->
+    </div>
+
+  </div>
+
+  <script src="../scripts/CalculadoraScript.js"></script>
+</body>
+</html>
