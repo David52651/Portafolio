@@ -90,6 +90,9 @@ function calcular() {
     const cerrados = (operacion.match(/\)/g) || []).length;
     if (cerrados > abiertos) throw new Error("Paréntesis desbalanceados");
 
+    // ✅ Guardar la operación original ANTES de modificarla
+    const expresionOriginal = operacion;
+
     let expresion = operacion + ')'.repeat(abiertos - cerrados);
 
     expresion = reemplazarConstantes(expresion);
@@ -101,7 +104,6 @@ function calcular() {
 
     let resultado = Function('"use strict"; return (' + expresion + ')')();
 
-    // Redondear resultado a 10 decimales para evitar errores de precisión
     resultado = parseFloat(resultado.toFixed(10));
 
     operacion = resultado.toString();
@@ -109,7 +111,9 @@ function calcular() {
     parenAbiertos = 0;
 
     actualizarPantalla();
-    agregarAHistorial(operacion, resultado);
+
+    // ✅ Aquí usamos la operación original para mostrar correctamente el historial
+    agregarAHistorial(expresionOriginal, resultado);
   } catch (e) {
     operacion = '';
     mostrarResultado = false;
@@ -117,6 +121,7 @@ function calcular() {
     pantalla.textContent = 'Error';
   }
 }
+
 
 function actualizarParentesisFantasma() {
   // Guardamos el texto puro sin el span de paréntesis fantasma
