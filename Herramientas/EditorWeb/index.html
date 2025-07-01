@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editor de Código Online</title>
+  <link rel="stylesheet" href="../../css/EditorwebCss.css" />
+  <link rel="stylesheet" href="https://unpkg.com/lucide@latest/dist/lucide.css" /> <!-- Iconos opcionales -->
+</head>
+<body>
+  <div class="container">
+    <h1>Editor de Código Online</h1>
+
+    <!-- Zona de errores y sugerencias -->
+    <div id="alertas" class="alertas"></div>
+
+    <!-- Edición de código con CodeMirror o Monaco -->
+    <div class="editor-section resizable-container">
+      <div class="editor-panel">
+        <div class="editor-header">
+          <label for="html">HTML</label>
+          <button class="download-btn" onclick="descargarCodigo('html')">
+            <i data-lucide="download"></i>
+          </button>
+        </div>
+        <textarea id="html" placeholder="Escribe tu HTML aquí..."></textarea>
+        <!-- Para integración futura con CodeMirror -->
+        <div id="html-codemirror" class="codemirror-area"></div>
+      </div>
+
+      <div class="editor-panel">
+        <div class="editor-header">
+          <label for="css">CSS</label>
+          <button class="download-btn" onclick="descargarCodigo('css')">
+            <i data-lucide="download"></i>
+          </button>
+        </div>
+        <textarea id="css" placeholder="Escribe tu CSS aquí..."></textarea>
+        <div id="css-codemirror" class="codemirror-area"></div>
+      </div>
+
+      <div class="editor-panel">
+        <div class="editor-header">
+          <label for="js">JavaScript</label>
+          <button class="download-btn" onclick="descargarCodigo('js')">
+            <i data-lucide="download"></i>
+          </button>
+        </div>
+        <textarea id="js" placeholder="Escribe tu JavaScript aquí..."></textarea>
+        <div id="js-codemirror" class="codemirror-area"></div>
+      </div>
+    </div>
+
+    <!-- Botón opcional de ejecución manual -->
+    <button id="run">Ejecutar</button>
+
+    <!-- Vista previa -->
+    <div class="preview-section">
+      <h2>Vista Previa</h2>
+      <iframe id="preview" sandbox="allow-scripts" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="../../scripts/Herramientas/EditorwebScript.js"></script>
+
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
