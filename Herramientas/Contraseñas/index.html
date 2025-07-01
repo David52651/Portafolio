@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de Contraseñas</title>
+  <link rel="stylesheet" href="../../css/ContraseñasCss.css" />
+  <script src="https://kit.fontawesome.com/a2e0c1bfa6.js" crossorigin="anonymous"></script>
+  <style>
+    .strength-meter {
+      height: 8px;
+      width: 100%;
+      background: #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .strength-meter-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    .strength-weak { background: red; }
+    .strength-medium { background: orange; }
+    .strength-strong { background: green; }
+    .fade-in {
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-lock"></i> Generador de Contraseñas Seguras</h1>
+
+    <div class="controls">
+      <label for="length">Longitud: <span id="lengthValue">12</span></label>
+      <input type="range" id="length" min="6" max="32" value="12" />
+
+      <label><input type="checkbox" id="uppercase" checked /> Incluir mayúsculas</label>
+      <label><input type="checkbox" id="lowercase" checked /> Incluir minúsculas</label>
+      <label><input type="checkbox" id="numbers" checked /> Incluir números</label>
+      <label><input type="checkbox" id="symbols" checked /> Incluir símbolos</label>
+
+      <label><input type="checkbox" id="usePassphrase" /> Usar frase fácil de recordar</label>
+
+      <label for="langSelect">Idioma:</label>
+      <select id="langSelect" style="display: none;">
+        <option value="es">Español</option>
+        <option value="en">Inglés</option>
+      </select>
+
+      <label style="display:none;" id="leetModeLabel">
+        <input type="checkbox" id="leetMode" /> Aplicar Leet Speak
+      </label>
+
+      <button id="generate" class="fade-in"><i class="fas fa-bolt"></i> Generar</button>
+    </div>
+
+    <div class="card-output fade-in">
+      <p id="passwordCard">Tu contraseña aparecerá aquí</p>
+      <div class="strength-meter"><div id="strengthBar" class="strength-meter-fill"></div></div>
+    </div>
+
+    <div class="output-buttons fade-in">
+      <button id="copy"><i class="fas fa-copy"></i> Copiar</button>
+      <button id="download"><i class="fas fa-file-download"></i> Exportar</button>
+    </div>
+
+    <div class="custom-input-check fade-in">
+      <label for="customInput">Verifica tu propia contraseña:</label>
+      <input type="text" id="customInput" placeholder="Escribe una contraseña" />
+      <div class="strength-meter"><div id="customStrengthBar" class="strength-meter-fill"></div></div>
+    </div>
+
+    <div class="advice">
+      <i class="fas fa-shield-alt"></i> Consejo: No reutilices contraseñas importantes y considera usar un gestor de contraseñas.
+    </div>
+  </div>
+
+  <script src="../../scripts/Herramientas/ContraseñasScript.js"></script>
+</body>
+</html>
