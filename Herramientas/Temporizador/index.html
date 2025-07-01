@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temporizador / Cronómetro</title>
+  <link rel="stylesheet" href="../../css/TemporizadorCss.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- PESTAÑAS -->
+    <div class="tabs">
+      <button id="tabTemporizador" class="tab active" onclick="cambiarModo('temporizador')">Temporizador</button>
+      <button id="tabCronometro" class="tab" onclick="cambiarModo('cronometro')">Cronómetro</button>
+    </div>
+
+    <h1 id="tituloModo">Temporizador</h1>
+
+    <!-- === CONTENIDO TEMPORIZADOR === -->
+    <div id="seccionTemporizador">
+      <div class="timer" id="timer">00:00:00</div>
+      <div class="inputs">
+        <input type="number" id="horas" placeholder="Horas" min="0" />
+        <input type="number" id="minutos" placeholder="Minutos" min="0" />
+        <input type="number" id="segundos" placeholder="Segundos" min="0" max="59" />
+      </div>
+      <div class="botones">
+        <button id="iniciarBtn" onclick="iniciar()">Iniciar</button>
+        <button id="detenerBtn" onclick="detener()" disabled>Detener</button>
+        <button onclick="reiniciar()">Reiniciar</button>
+        <button id="detenerAlarmaBtn" onclick="detenerAlarma()" style="display: none;">Detener Alarma</button>
+      </div>
+    </div>
+
+    <!-- === CONTENIDO CRONÓMETRO === -->
+    <div id="seccionCronometro" style="display: none;">
+      <div class="timer" id="cronometro">00:00:00</div>
+      <div class="botones">
+        <button id="iniciarCronoBtn" onclick="iniciar()">Iniciar</button>
+        <button id="detenerCronoBtn" onclick="detener()" disabled>Detener</button>
+        <button onclick="reiniciar()">Reiniciar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script principal de control de modos -->
+  <script>
+    let modoActual = 'temporizador';
+
+    function cambiarModo(modo) {
+      modoActual = modo;
+
+      document.getElementById("tituloModo").textContent = modo === "temporizador" ? "Temporizador" : "Cronómetro";
+      document.getElementById("tabTemporizador").classList.toggle("active", modo === "temporizador");
+      document.getElementById("tabCronometro").classList.toggle("active", modo === "cronometro");
+      document.getElementById("seccionTemporizador").style.display = modo === "temporizador" ? "block" : "none";
+      document.getElementById("seccionCronometro").style.display = modo === "cronometro" ? "block" : "none";
+    }
+
+    function iniciar() {
+      if (modoActual === "temporizador") {
+        if (typeof iniciarTemporizador === "function") iniciarTemporizador();
+      } else {
+        if (typeof iniciarCronometro === "function") iniciarCronometro();
+      }
+    }
+
+    function detener() {
+      if (modoActual === "temporizador") {
+        if (typeof detenerTemporizador === "function") detenerTemporizador();
+      } else {
+        if (typeof detenerCronometro === "function") detenerCronometro();
+      }
+    }
+
+    function reiniciar() {
+      if (modoActual === "temporizador") {
+        if (typeof reiniciarTemporizador === "function") reiniciarTemporizador();
+      } else {
+        if (typeof reiniciarCronometro === "function") reiniciarCronometro();
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      cambiarModo(modoActual);
+    });
+  </script>
+
+  <!-- Scripts de lógica -->
+  <script src="../../scripts/TemporizadorScript.js"></script>
+  <script src="../../scripts/CronometroScript.js"></script>
+</body>
+</html>
