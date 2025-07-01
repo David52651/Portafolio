@@ -29,6 +29,12 @@ async function convertir() {
     alert("Error al conectarse a la API: " + err.message);
   }
 }
+// intercambiar valores de los selectores
+function intercambiarMonedas() {
+  const origen = document.getElementById("monedaOrigen");
+  const destino = document.getElementById("monedaDestino");
+  [origen.value, destino.value] = [destino.value, origen.value];
+}
 
 async function cargarMonedas() {
   const url = `https://api.unirateapi.com/api/currencies?api_key=${apiKey}`;
