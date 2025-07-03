@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda Digital</title>
+    <link rel="stylesheet" href="../../css/AgendaCss.css" />
+  </head>
+  <body>
+    <div class="agenda-container">
+      <!-- Barra lateral -->
+      <aside class="sidebar">
+        <h2>📅 Agenda</h2>
+        <nav>
+          <input
+            type="text"
+            id="busqueda-evento"
+            placeholder="Buscar eventos..."
+          />
+          <ul id="resultados-busqueda"></ul>
+          <button id="vista-dia">Vista Día</button>
+          <button id="vista-semana">Vista Semana</button>
+          <button id="vista-mes" class="active">Vista Mes</button>
+          <button id="btn-nuevo-evento">+ Nuevo Evento</button>
+        </nav>
+        <div class="eventos-hoy">
+          <h3>Eventos Hoy</h3>
+          <ul id="lista-eventos-hoy"></ul>
+          <button onclick="document.getElementById('importar-eventos').click()">
+            Importar Eventos
+          </button>
+          <input
+            type="file"
+            id="importar-eventos"
+            accept=".json"
+            style="display: none"
+          />
+          <button onclick="exportarEventos()">Exportar Eventos</button>
+        </div>
+      </aside>
+
+      <!-- Contenedor de vistas -->
+      <main class="calendario">
+        <!-- Encabezado general de calendario -->
+        <header class="calendario-header">
+          <button id="mes-anterior">←</button>
+          <h1 id="mes-actual">Julio 2025</h1>
+          <button id="mes-siguiente">→</button>
+        </header>
+
+        <!-- Vista MES -->
+        <div id="vista-mes-contenedor" class="vista-activa">
+          <div class="dias-semana">
+            <div>Dom</div>
+            <div>Lun</div>
+            <div>Mar</div>
+            <div>Mié</div>
+            <div>Jue</div>
+            <div>Vie</div>
+            <div>Sáb</div>
+          </div>
+          <div id="grid-calendario" class="grid-calendario">
+            <!-- Se rellena dinámicamente -->
+          </div>
+        </div>
+
+        <!-- Vista SEMANA -->
+        <div id="vista-semana-contenedor" class="oculto">
+          <div class="navegacion-semana">
+            <button id="semana-anterior">← Semana anterior</button>
+            <button id="semana-siguiente">Semana siguiente →</button>
+          </div>
+          <div id="semana-grid" class="semana-grid">
+            <!-- Se rellenará dinámicamente desde JS -->
+          </div>
+        </div>
+
+        <!-- Vista DÍA -->
+        <div id="vista-dia-contenedor" class="oculto">
+          <div class="navegacion-dia">
+            <button id="dia-anterior">← Día anterior</button>
+            <button id="dia-siguiente">Día siguiente →</button>
+          </div>
+          <div id="dia-detalle" class="dia-detalle">
+            <!-- Detalles del día específico -->
+          </div>
+        </div>
+      </main>
+
+      <!-- Panel de detalles lateral (clic día calendario) -->
+      <section id="panel-detalle" class="panel-detalle oculto">
+        <h2>Eventos del <span id="fecha-detalle"></span></h2>
+        <ul id="lista-detalle-eventos"></ul>
+      </section>
+
+      <!-- Modal para nuevo evento -->
+      <div id="modal-evento" class="modal oculto">
+        <div class="modal-contenido">
+          <h2>Nuevo Evento</h2>
+          <form id="form-evento">
+            <label for="titulo-evento">Título:</label>
+            <input type="text" id="titulo-evento" required />
+
+            <label for="fecha-evento">Fecha:</label>
+            <input type="date" id="fecha-evento" required />
+
+            <label for="hora-evento">Hora:</label>
+            <input type="time" id="hora-evento" />
+
+            <label for="tipo-evento">Tipo:</label>
+            <input type="text" id="tipo-evento" list="lista-categorias" />
+            <datalist id="lista-categorias">
+              <option value="personal"></option>
+              <option value="trabajo"></option>
+              <option value="recordatorio"></option>
+            </datalist>
+
+            <label for="color-evento">Color:</label>
+            <input type="color" id="color-evento" value="#2196f3" />
+
+            <label for="descripcion-evento">Descripción:</label>
+            <textarea id="descripcion-evento" rows="3"></textarea>
+
+            <div class="modal-botones">
+              <button type="submit">Guardar</button>
+              <button type="button" id="cancelar-evento" class="cancelar">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../scripts/Herramientas/AgendaScript.js"></script>
+  </body>
+</html>
