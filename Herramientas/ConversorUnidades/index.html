@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Unidades</title>
+    <link rel="stylesheet" href="../../css/ConversorUnidadesCss.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Conversor de Unidades</h1>
+
+      <div class="form-group">
+        <label for="valor">Valor</label>
+        <input
+          type="number"
+          id="valor"
+          step="any"
+          placeholder="Ingresa el valor a convertir"
+        />
+      </div>
+
+      <div class="form-group unidades">
+        <div>
+          <label for="unidad-desde">De</label>
+          <select id="unidad-desde">
+            <!-- Opciones iniciales, pero serán dinámicamente sincronizadas -->
+            <option value="km">Kilómetro</option>
+            <option value="m">Metro</option>
+            <option value="mi">Milla</option>
+            <option value="cm">Centímetro</option>
+            <option value="°C">Celsius</option>
+            <option value="°F">Fahrenheit</option>
+            <option value="K">Kelvin</option>
+            <option value="kg">Kilogramo</option>
+            <option value="g">Gramo</option>
+            <option value="lb">Libra</option>
+            <option value="km/h">km/h</option>
+            <option value="m/s">m/s</option>
+            <option value="mi/h">mph</option>
+          </select>
+        </div>
+
+        <!-- Botón Intercambiar -->
+        <div class="intercambiar-container" style="align-self: flex-end">
+          <label>&nbsp;</label>
+          <button
+            id="intercambiar"
+            title="Intercambiar unidades"
+            aria-label="Intercambiar unidades"
+          >
+            🔁
+          </button>
+        </div>
+
+        <div>
+          <label for="unidad-hasta">A</label>
+          <!-- Este select será actualizado dinámicamente con JS -->
+          <select id="unidad-hasta">
+            <!-- Las opciones serán filtradas automáticamente -->
+          </select>
+        </div>
+      </div>
+
+      <button id="convertir">Convertir</button>
+
+      <div class="resultado" id="resultado">
+        <h2>Resultado:</h2>
+        <p id="resultado-valor">--</p>
+      </div>
+    </div>
+
+    <script src="../../scripts/Herramientas/ConversorUnidadesScript.js"></script>
+  </body>
+</html>

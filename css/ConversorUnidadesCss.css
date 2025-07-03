@@ -1,0 +1,143 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  background-color: #2c3e50;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #f1c40f;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #34495e;
+  color: #ecf0f1;
+  font-size: 16px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+input:focus,
+select:focus {
+  background-color: #3d5a73;
+}
+
+.unidades {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.unidades > div,
+.unidades > .intercambiar-container {
+  flex: 1;
+}
+
+/* Estilo especial para el botón de intercambio */
+.intercambiar-container button {
+  width: 100%;
+  padding: 10px;
+  font-size: 22px;
+  background-color: #f1c40f;
+  color: #2c3e50;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 100%;
+}
+
+.intercambiar-container button:hover {
+  background-color: #d4ac0d;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  background-color: #f1c40f;
+  color: #2c3e50;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d4ac0d;
+}
+
+.resultado {
+  margin-top: 25px;
+  background-color: #1c2833;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.resultado h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #f39c12;
+}
+
+#resultado-valor {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ecf0f1;
+  transition: opacity 0.3s ease;
+}
+
+/* Diseño responsive */
+@media (max-width: 600px) {
+  .unidades {
+    flex-direction: column;
+  }
+
+  .unidades > div,
+  .unidades > .intercambiar-container {
+    width: 100%;
+  }
+
+  .intercambiar-container button {
+    height: auto;
+  }
+}
