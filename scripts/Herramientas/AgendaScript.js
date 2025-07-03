@@ -347,7 +347,7 @@ document.getElementById("semana-siguiente").addEventListener("click", () => {
   renderizarVistaSemana();
 });
 
-// Funcion notificaciones y recordatorios
+// función notificaciones y recordatorios
 function programarRecordatorios() {
   if (!("Notification" in window)) return;
 

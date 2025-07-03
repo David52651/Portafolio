@@ -24,6 +24,17 @@ body {
   gap: 20px;
   flex-wrap: wrap;
 }
+/* Barra de búsqueda */
+#busqueda-evento {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1e1e33;
+  color: #fff;
+  font-size: 0.95rem;
+}
 
 /* Barra lateral */
 .sidebar {
@@ -83,7 +94,6 @@ body {
 .navegacion-semana button:hover {
   background-color: #666;
 }
-
 
 .eventos-hoy ul {
   list-style: none;
@@ -307,6 +317,11 @@ body {
   border-radius: 5px;
   background-color: #1e1e33;
   color: #fff;
+}
+
+/* Estilo para datalist en modo claro/oscuro */
+input[list]::-webkit-calendar-picker-indicator {
+  display: none !important;
 }
 
 .modal-botones {
