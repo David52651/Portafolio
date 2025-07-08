@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agenda Digital</title>
-    <link rel="stylesheet" href="../../css/AgendaCss.css" />
+    <link rel="stylesheet" href="AgendaCss.css" />
   </head>
   <body>
     <div class="agenda-container">
@@ -35,7 +35,7 @@
             accept=".json"
             style="display: none"
           />
-          <button onclick="exportarEventos()">Exportar Eventos</button>
+          <button id="btn-exportar-eventos">Exportar Eventos</button>
         </div>
       </aside>
 
@@ -132,6 +132,6 @@
       </div>
     </div>
 
-    <script src="../../scripts/Herramientas/AgendaScript.js"></script>
+    <script type="module" src="AgendaScript.js"></script>
   </body>
 </html>

@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Conversor de Monedas</title>
-  <link rel="stylesheet" href="../../css/ConversorMonedasCss.css" />
+  <link rel="stylesheet" href="ConversorMonedasCss.css" />
 </head>
 <body>
   <div class="container">
     <h1>Conversor de Monedas</h1>
-    <button onclick="intercambiarMonedas()">↔ Intercambiar</button>
+    <button id="btnIntercambiar">↔ Intercambiar</button>
     <div class="conversor">
       <input type="number" id="cantidad" placeholder="Cantidad" />
 
@@ -25,13 +25,13 @@
         </select>
       </div>
 
-      <button onclick="convertir()">Convertir</button>
+      <button id="btnConvertir">Convertir</button>
       <p id="resultado">Resultado: -</p>
 
       <div id="attribution"></div>
     </div>
   </div>
 
-  <script src="../../scripts/Herramientas/ConversorMonedasScript.js"></script>
+  <script type="module" src="ConversorMonedasScript.js"></script>
 </body>
 </html>
