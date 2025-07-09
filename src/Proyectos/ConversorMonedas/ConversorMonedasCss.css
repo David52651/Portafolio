@@ -1,92 +1,161 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
+/* ============================== */
+/* ESTILOS: CONVERSOR DE MONEDAS */
+/* ============================== */
 
+/* CONTENEDOR PRINCIPAL */
 .container {
-  background: #ffffff;
+  max-width: 600px;
+  margin: 60px auto;
   padding: 40px 30px;
+  background-color: var(--card-bg);
   border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* TÍTULO */
+.container h1 {
+  font-size: 2rem;
+  color: var(--heading-color);
   text-align: center;
-  max-width: 400px;
-  width: 100%;
+  border-bottom: 2px solid var(--button-bg);
+  padding-bottom: 10px;
 }
 
-h1 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
+/* BOTÓN INTERCAMBIAR */
+#btnIntercambiar {
+  align-self: center;
+  padding: 8px 20px;
+  background-color: transparent;
+  color: var(--link-color);
+  border: 2px dashed var(--link-color);
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.conversor input,
-.conversor select {
+#btnIntercambiar:hover {
+  background-color: var(--link-color);
+  color: white;
+}
+
+/* CONVERSOR */
+.conversor {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* INPUT DE CANTIDAD */
+#cantidad {
   padding: 12px;
-  margin: 10px 0;
-  font-size: 16px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: border 0.3s;
+  font-size: 1.1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: border 0.3s ease;
 }
 
-.conversor input:focus,
-.conversor select:focus {
-  border-color: #007bff;
+#cantidad:focus {
   outline: none;
+  border-color: var(--button-bg);
+  background-color: var(--input-focus);
 }
 
+/* SELECTORES */
 .selectores {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 15px;
 }
 
-button {
-  padding: 12px 24px;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-  width: 100%;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-#resultado {
-  margin-top: 20px;
-  font-weight: bold;
-  font-size: 18px;
-  color: #222;
-}
-
-#attribution {
-  margin-top: 15px;
-  font-size: 12px;
-  color: #888;
+.selectores select {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 2px solid transparent;
+  border-radius: 10px;
   text-align: center;
-  font-style: italic;
+  transition: border 0.3s ease;
+}
+
+.selectores select:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  background-color: var(--input-focus);
+}
+
+.selectores span {
+  font-size: 1.5rem;
+  color: var(--label-color);
+}
+
+/* BOTÓN CONVERTIR */
+#btnConvertir {
+  padding: 12px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, transform 0.2s;
+}
+
+#btnConvertir:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+/* RESULTADO */
+#resultado {
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--paragraph-color);
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 5px solid var(--button-bg);
+  font-weight: 500;
+}
+
+/* ATRIBUCIÓN */
+#attribution {
+  font-size: 0.85rem;
+  color: var(--label-color);
+  text-align: center;
+  margin-top: 10px;
   opacity: 0.6;
-  transition: opacity 0.3s;
 }
 
-#attribution a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px dotted #888;
+/* ANIMACIÓN */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-#attribution:hover {
-  opacity: 1;
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .selectores {
+    flex-direction: column;
+  }
+
+  .selectores select {
+    width: 100%;
+  }
+
+  #btnIntercambiar {
+    width: 100%;
+  }
 }

@@ -1,0 +1,187 @@
+/* ======== VARIABLES DE COLOR (Modo Oscuro por defecto) ======== */
+:root {
+  --bg-color: #1a1a2e;
+  --bg-secondary: #16213e;
+  --text-color: #f1f5f9;
+  --heading-color: #93c5fd;
+  --paragraph-color: #e2e8f0;
+  --link-color: #60a5fa;
+  --button-bg: #3b82f6;
+  --button-hover: #2563eb;
+  --button-disabled: #64748b;
+  --input-bg: #1e293b;
+  --input-focus: #334155;
+  --label-color: #7dd3fc;
+  --card-bg: #1e293b;
+  --alert-bg: #2e2e4e;
+  --alert-border: #facc15;
+  --alert-text: #fcd34d;
+}
+
+/* ======== MODO CLARO ======== */
+:root.modo-claro {
+  --bg-color: #f9fafb;
+  --bg-secondary: #e5e7eb;
+  --text-color: #1f2937;
+  --heading-color: #1e40af;
+  --paragraph-color: #374151;
+  --link-color: #2563eb;
+  --button-bg: #2563eb;
+  --button-hover: #1d4ed8;
+  --button-disabled: #94a3b8;
+  --input-bg: #f3f4f6;
+  --input-focus: #e2e8f0;
+  --label-color: #2563eb;
+  --card-bg: #ffffff;
+  --alert-bg: #fff9db;
+  --alert-border: #facc15;
+  --alert-text: #92400e;
+}
+
+/* ======== RESET GLOBAL Y TIPOGRAFÍA ======== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, var(--bg-color), var(--bg-secondary));
+  color: var(--text-color);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ======== TÍTULOS Y TEXTO ======== */
+h1, h2, h3 {
+  margin-bottom: 16px;
+  font-weight: bold;
+  color: var(--heading-color);
+}
+
+p {
+  margin-bottom: 10px;
+  color: var(--paragraph-color);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ======== CONTENEDOR UNIVERSAL ======== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ======== BOTONES ======== */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+  transition: background 0.3s, transform 0.2s;
+  -webkit-transition: background 0.3s, transform 0.2s;
+  -moz-transition: background 0.3s, transform 0.2s;
+  -ms-transition: background 0.3s, transform 0.2s;
+  -o-transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: var(--button-disabled);
+  cursor: not-allowed;
+}
+
+/* ======== INPUTS Y SELECTS ======== */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="color"],
+input[type="range"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  margin-bottom: 12px;
+  transition: border 0.3s, background 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid var(--button-bg);
+  background-color: var(--input-focus);
+}
+
+/* ======== FORMULARIOS ======== */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--label-color);
+}
+
+/* ======== CARDS, SECCIONES Y PANEL ======== */
+.card, .panel, section, article {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+/* ======== ALERTAS Y MENSAJES ======== */
+.alertas {
+  background-color: var(--alert-bg);
+  border-left: 4px solid var(--alert-border);
+  color: var(--alert-text);
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 0.95em;
+  margin-bottom: 20px;
+}
+
+/* ======== ANIMACIONES BÁSICAS ======== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+/* ======== RESPONSIVE GLOBAL ======== */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

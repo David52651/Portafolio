@@ -1,5 +1,6 @@
 // EventosScript.js
 import { guardarEventos, cargarEventos } from './AlmacenamientoScript.js';
+import { solicitarPermisoNotificaciones, mostrarNotificacion } from '../../shared/Untils/notificaciones.js';
 
 let eventos = cargarEventos();
 let indiceEdicion = null;
@@ -121,27 +122,26 @@ export function mostrarEventosHoy(contenedor) {
   }
 }
 
-export function programarRecordatorios() {
-  if (!("Notification" in window)) return;
+export async function programarRecordatorios() {
+  const permiso = await solicitarPermisoNotificaciones();
+  if (!permiso) return;
 
-  Notification.requestPermission().then(permission => {
-    if (permission !== "granted") return;
+  const ahora = new Date();
 
-    const ahora = new Date();
+  eventos.forEach(evento => {
+    if (!evento.hora) return;
 
-    eventos.forEach(evento => {
-      if (!evento.hora) return;
-      const fechaEvento = new Date(`${evento.fecha}T${evento.hora}`);
-      const diff = fechaEvento - ahora;
+    const fechaEvento = new Date(`${evento.fecha}T${evento.hora}`);
+    const diff = fechaEvento - ahora;
 
-      if (diff > 0 && diff <= 60 * 60 * 1000) {
-        setTimeout(() => {
-          new Notification("Recordatorio", {
-            body: `${evento.titulo} a las ${evento.hora}`,
-          });
-        }, diff);
-      }
-    });
+    if (diff > 0 && diff <= 60 * 60 * 1000) {
+      setTimeout(() => {
+        mostrarNotificacion("Recordatorio", {
+          body: `${evento.titulo} a las ${evento.hora}`,
+        });
+      }, diff);
+    }
   });
 }
+
 

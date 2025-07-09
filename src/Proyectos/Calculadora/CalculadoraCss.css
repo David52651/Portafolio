@@ -1,137 +1,131 @@
-/* Fuente y fondo general */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #eef1f5;
+/* ========================= */
+/* ESTILOS CALCULADORA */
+/* ========================= */
+
+#app-container {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100vh;
-  margin: 0;
   gap: 40px;
   padding: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-/* Contenedor principal de la calculadora */
+/* CALCULADORA */
 .calculadora {
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  padding: 25px 20px;
-  width: 340px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Pantalla de la calculadora */
-.pantalla {
-  background-color: #1e1e1e;
-  color: #00ff88;
-  font-size: 2.2em;
+  background-color: var(--card-bg);
+  border-radius: 12px;
   padding: 20px;
-  text-align: right;
-  border-radius: 10px;
-  word-wrap: break-word;
-  min-height: 60px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Contenedor de los botones */
+.pantalla {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1.8rem;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: right;
+  word-wrap: break-word;
+  min-height: 50px;
+  font-family: monospace;
+}
+
+/* BOTONES */
 .botones {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: 10px;
 }
 
-.ghost {
-  color: rgb(83, 78, 78); /* o #ccc para gris claro */
-}
-
-
-/* Botones generales */
-button {
-  padding: 18px;
-  font-size: 1.1em;
+.botones button {
+  background-color: var(--button-bg);
+  color: white;
   border: none;
-  border-radius: 10px;
-  background-color: #e3e6e8;
-  color: #333;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
 }
 
-button:hover {
-  background-color: #d1d5d8;
+.botones button:hover {
+  background-color: var(--button-hover);
   transform: translateY(-2px);
 }
 
-/* Botones de operadores */
-.operador {
-  background-color: #f9a825;
-  color: white;
+.botones button.operador {
+  background-color: #f59e0b;
+  color: #000;
 }
 
-.operador:hover {
-  background-color: #f57f17;
+.botones button.operador:hover {
+  background-color: #d97706;
 }
 
-/* Botón de igual */
-.igual {
-  background-color: #29b6f6;
-  color: white;
+.botones button.igual {
+  background-color: #10b981;
+  color: #fff;
   grid-column: span 2;
 }
 
-.igual:hover {
-  background-color: #0288d1;
+.botones button.igual:hover {
+  background-color: #059669;
 }
 
-/* Historial */
+/* HISTORIAL */
 #historial {
-  background-color: #fff;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  padding: 18px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
   max-height: 500px;
   overflow-y: auto;
-  width: 260px;
-  font-size: 0.95em;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 #historial h2 {
-  font-size: 1.1em;
-  margin: 0 0 10px 0;
-  color: #444;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 8px;
+  margin-bottom: 15px;
+  color: var(--heading-color);
 }
 
-/* Cada ítem como tarjeta */
-.item-historial {
-  background-color: #f9f9fb;
-  padding: 12px 14px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
-  color: #333;
+#historial ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#historial li {
+  background-color: var(--input-bg);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-left: 4px solid var(--button-bg);
+  border-radius: 6px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  transition: background 0.2s;
 }
 
-.item-historial:hover {
-  background-color: #eef2f5;
-  transform: scale(1.02);
+#historial li:hover {
+  background-color: var(--input-focus);
 }
 
-/* Scroll personalizado */
-#historial::-webkit-scrollbar {
-  width: 8px;
-}
-#historial::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  #app-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
 
+  .calculadora, #historial {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .botones {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
