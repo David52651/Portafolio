@@ -1,0 +1,79 @@
+/* ======== Estilos específicos para Generador QR ======== */
+
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+#texto {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#qrcode {
+  margin: 20px auto;
+  padding: 15px;
+  background-color: white;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+#qrcode:hover {
+  transform: scale(1.03);
+}
+
+#descargar {
+  margin-top: 15px;
+}
+
+/* Animación opcional */
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+#qrcode img {
+  animation: scaleIn 0.3s ease-out;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+/* Agrupar botones */
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Mejoras visuales en botones */
+button {
+  min-width: 180px;
+  text-align: center;
+}
+
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  #qrcode {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

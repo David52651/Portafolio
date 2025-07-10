@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generador de Código QR</title>
+
+  <!-- Estilo base con variables y diseño responsive -->
+  <link rel="stylesheet" href="../../EstilosComunes/EstiloBase.css" />
+  <link rel="stylesheet" href="GeneradorqrCss.css" />
+</head>
+<body>
+  <div class="container fade-in">
+    <h1>Generador de Código QR</h1>
+
+    <label for="texto">Texto o URL:</label>
+    <input type="text" id="texto" placeholder="Introduce texto o URL">
+
+<div class="botones">
+  <button onclick="generarQR()">Generar QR</button>
+  <div id="qrcode" class="card" style="margin-top: 20px; text-align: center;"></div>
+  <button id="descargar" style="display:none;" onclick="descargarQR()">Descargar QR</button>
+</div>
+
+  </div>
+
+  <!-- Librería externa para generar QR -->
+  <script src="qrcode.min.js"></script>
+  <!-- Script principal -->
+  <script src="GeneradorqrScript.js"></script>
+  <!-- Tema dinámico -->
+  <script src="../../shared/Untils/tema.js"></script>
+</body>
+</html>
