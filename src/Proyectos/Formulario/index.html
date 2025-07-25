@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario con Validación</title>
+  <link rel="stylesheet" href="../../EstilosComunes/EstiloBase.css" />
+  <link rel="stylesheet" href="FormularioCss.css" />
+</head>
+<body>
+  <main>
+<form id="formularioRegistro" novalidate>
+  <h2>Registro de Usuario</h2>
+
+  <!-- Nombre -->
+  <label for="nombre">Nombre completo:</label>
+  <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
+
+  <!-- Email -->
+  <label for="email">Correo electrónico:</label>
+  <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com" />
+
+  <!-- Teléfono -->
+  <label for="telefono">Teléfono:</label>
+  <input type="tel" id="telefono" name="telefono" required placeholder="987654321" />
+
+  <!-- Contraseña -->
+  <label for="password">Contraseña:</label>
+  <input type="password" id="password" name="password" required placeholder="Mínimo 8 caracteres" />
+
+  <!-- Confirmar Contraseña -->
+  <label for="confirmarPassword">Confirmar Contraseña:</label>
+  <input type="password" id="confirmarPassword" name="confirmarPassword" required />
+
+  <!-- Selección de país -->
+  <label for="pais">País:</label>
+  <select id="pais" name="pais" required>
+    <option value="">-- Selecciona tu país --</option>
+    <option value="peru">Perú</option>
+    <option value="mexico">México</option>
+    <option value="argentina">Argentina</option>
+    <option value="espana">España</option>
+    <option value="colombia">Colombia</option>
+  </select>
+
+  <!-- Términos -->
+  <label>
+    <input type="checkbox" id="terminos" name="terminos" required />
+    Acepto los términos y condiciones
+  </label>
+
+  <!-- Comentarios -->
+  <label for="comentarios">Comentarios adicionales:</label>
+  <textarea id="comentarios" name="comentarios" rows="4" placeholder="¿Algo que quieras contarnos?"></textarea>
+
+  <!-- Botón de envío -->
+  <button type="submit">Registrarse</button>
+</form>
+
+  </main>
+
+  <script src="FormularioScript.js"></script>
+</body>
+</html>

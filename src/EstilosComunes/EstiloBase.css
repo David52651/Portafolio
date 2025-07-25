@@ -185,3 +185,21 @@ label {
     width: 100%;
   }
 }
+
+/* ======== ESTADOS DE VALIDACIÓN ======== */
+input.valido, select.valido, textarea.valido {
+  border: 2px solid #22c55e; /* Verde */
+}
+
+input.invalido, select.invalido, textarea.invalido {
+  border: 2px solid #ef4444; /* Rojo */
+}
+
+.mensaje-error {
+  color: #f87171;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 12px;
+  display: block;
+  font-weight: 500;
+}
